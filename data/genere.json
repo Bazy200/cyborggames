@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "naziv":"RPG",
+        "href" : "https://www.cdprojektred.com/en"
+    },
+    {
+        "id":2,
+        "naziv":"Sport",
+        "href" : "https://www.2k.com/en-US/"
+    },
+    {
+        "id":3,
+        "naziv":"FPS",
+        "href" : "https://www.activision.com/"
+    }
+]

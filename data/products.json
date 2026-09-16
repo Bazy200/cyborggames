@@ -1,0 +1,151 @@
+[
+    {
+        "id":1,
+        "naziv": "Metal Gear Solid V",
+        "proizvodjac": 4,
+        "platforme": 2,
+        "zanrovi":3,
+        "slika":{
+            "alt":"mgsv",
+            "src":"assets/images/mgsv.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 15999,
+            "cenaNova":null
+        },
+        "newArrival":null
+        
+    },
+    {
+        "id":2,
+        "naziv": "Skyrim",
+        "proizvodjac": 3,
+        "platforme": 2,
+        "zanrovi":1,
+        "slika":{
+            "alt":"Skyrim",
+            "src":"assets/images/skyrim.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara":null,
+            "cenaNova":6999
+        },
+        "newArrival":true
+    
+    },
+    {
+        "id":3,
+        "naziv": "Crysis 3",
+        "proizvodjac": 2,
+        "platforme": 2,
+        "zanrovi":3,
+        "slika":{
+            "alt":"Crysis 3",
+            "src":"assets/images/crysis3.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 7999,
+            "cenaNova":null
+        },
+        "newArrival":null
+    
+    },
+    {
+        "id":4,
+        "naziv": "Kingdom come: Deliverance",
+        "proizvodjac": 2,
+        "platforme": 1,
+        "zanrovi":1,
+        "slika":{
+            "alt":"KCD",
+            "src":"assets/images/kcd.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        },
+        "newArrival":true
+    
+    },
+    {
+        "id":5,
+        "naziv": "Fifa 24",
+        "proizvodjac": 2,
+        "platforme": 3,
+        "zanrovi":2,
+        "slika":{
+            "alt":"Fifa 24",
+            "src":"assets/images/fifa24.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        }
+    
+    },
+    {
+        "id":6,
+        "naziv": "The Witcher 3: Wild Hunt",
+        "proizvodjac": 1,
+        "platforme": 2,
+        "zanrovi":1,
+        "slika":{
+            "alt":"Witcher 3",
+            "src":"assets/images/witcher3.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        }
+    
+    },
+    {
+        "id":7,
+        "naziv": "CyberPunk 2077",
+        "proizvodjac": 1,
+        "platforme": 1,
+        "zanrovi":3,
+        "slika":{
+            "alt":"Fifa 24",
+            "src":"assets/images/2077.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        }
+    
+    },
+    {
+        "id":8,
+        "naziv": "Fifa 24",
+        "proizvodjac": 2,
+        "platforme": 2,
+        "zanrovi":1,
+        "slika":{
+            "alt":"Fifa 24",
+            "src":"assets/images/fifa24.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        }
+    
+    },
+    {
+        "id":9,
+        "naziv": "Death Stranding",
+        "proizvodjac": 4,
+        "platforme": 3,
+        "zanrovi":1,
+        "slika":{
+            "alt":"Fifa 24",
+            "src":"assets/images/deathstranding.jpg"
+        },
+        "cenaInfo":{
+            "cenaStara": 8999,
+            "cenaNova":null
+        }
+    
+    }
+
+]

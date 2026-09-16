@@ -1,0 +1,22 @@
+[
+    {
+        "vrednost": "naziv-asc",
+        "naziv": "Name A-Z"
+    },
+    {
+        "vrednost": "naziv-desc",
+        "naziv": "Name Z-A"
+    },
+    {
+        "vrednost": "cena-asc",
+        "naziv": "Price ASC"
+    },
+    {
+        "vrednost": "cena-desc",
+        "naziv": "Price DESC"
+    },
+    {
+        "vrednost": "new-arrival",
+        "naziv": "ARRIVAL DESC"
+    }
+]

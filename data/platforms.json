@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "naziv":"XBOX"
+        
+    },
+    {
+        "id":2,
+        "naziv":"PC"
+        
+    },
+    {
+        "id":3,
+        "naziv":"PLAYSTATION"
+        
+    }
+]
