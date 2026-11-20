@@ -114,7 +114,6 @@ window.onload = () => {
                     <p class="m-0">${obradaPublishers(objProizvod.proizvodjac, "sviPublishers")}</p>
                     <p>${obradaPublishers(objProizvod.platforme, "svePlatforme")} </p>
                     <p>${procesPrice(objProizvod.cenaInfo)} RSD</p>
-                    <p>${objProizvod.newArrival?"Yes":"No"}</p>
                     <button class='btn btn-danger btn-cart-add' data-id='${objProizvod.id}'>Add to cart </button>
                     <div></div>
                     <div class="my-2"></div></div></div>`

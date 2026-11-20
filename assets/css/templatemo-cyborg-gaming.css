@@ -1781,3 +1781,24 @@ body {
   margin-bottom: 15px;
   font-weight: bold;
 }
+
+/* ============================================================
+   Static navigation
+   Header stays in normal flow and is always visible. No
+   scroll-based hiding/animation (the old "background-header"
+   state set display:none and made the nav vanish on scroll).
+   ============================================================ */
+.header-area,
+.header-area.header-sticky {
+  position: static !important;
+  top: 0 !important;
+  height: auto !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.background-header {
+  display: none !important;
+}

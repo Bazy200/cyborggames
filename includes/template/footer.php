@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <h3 class="useful_text">About</h3>
-                    <p class="footer_text text-light">CyborgGaming prodavnica video igara. Pregledaj, filtriraj i poruci omiljene naslove.</p>
+                    <p class="footer_text text-light">CyborgGaming video game store. Browse, filter and order your favorite titles.</p>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h3 class="useful_text">Menu</h3>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h1 class="useful_text">Useful Links</h1>
-                    <a href="shop.php" class="color"><i class="fa fa-gamepad"></i><span class="px-2">Prodavnica</span></a>
+                    <a href="shop.php" class="color"><i class="fa fa-gamepad"></i><span class="px-2">Shop</span></a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h1 class="useful_text">Contact Us</h1>

@@ -4,5 +4,5 @@
     include "utility.php";
 
     unset($_SESSION['korisnik']);
-    redirect("../login.php");
+    redirect("../../index.php");
 ?>

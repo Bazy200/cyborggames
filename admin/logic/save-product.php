@@ -2,7 +2,7 @@
 
     session_start();
     include "utility.php";
-    autorizacija("../login.php", "admin");
+    autorizacija("../../login.php", "admin");
 
     if (!isset($_POST['btnSave'])) {
         redirect("../products.php");
@@ -41,13 +41,13 @@
     try {
         if ($id > 0) {
             izmeniProizvod($id, $podaci);
-            $_SESSION['poruka-uspeh'] = "Proizvod je uspesno izmenjen.";
+            $_SESSION['poruka-uspeh'] = "Product updated successfully.";
         } else {
             upisProizvoda($podaci);
-            $_SESSION['poruka-uspeh'] = "Proizvod je uspesno dodat.";
+            $_SESSION['poruka-uspeh'] = "Product added successfully.";
         }
     } catch (PDOException $e) {
-        $_SESSION['poruka-greska'] = "Greska u bazi: " . $e->getMessage();
+        $_SESSION['poruka-greska'] = "Database error: " . $e->getMessage();
     }
 
     redirect("../products.php");

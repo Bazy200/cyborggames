@@ -13,6 +13,52 @@
         return $iskaz->fetch();
     }
 
+    function emailPostoji($email) {
+        global $conn;
+        $iskaz = $conn->prepare("SELECT id FROM korisnik WHERE email = :email");
+        $iskaz->bindParam(":email", $email);
+        $iskaz->execute();
+        return (bool) $iskaz->fetch();
+    }
+
+    function registracija($ime, $prezime, $email, $lozinka) {
+        global $conn;
+        // uloga_id = 2 -> regular "user" role
+        $iskaz = $conn->prepare(
+            "INSERT INTO korisnik (ime, prezime, email, lozinka, uloga_id)
+             VALUES (:ime, :prezime, :email, :loz, 2)"
+        );
+        $iskaz->execute([
+            ':ime'     => $ime,
+            ':prezime' => $prezime,
+            ':email'   => $email,
+            ':loz'     => md5($lozinka),
+        ]);
+        return (int) $conn->lastInsertId();
+    }
+
+    function validirajRegistraciju(array $d): array {
+        $errors = [];
+        $reIme = "/^[A-ZŠĐŽČĆ][a-zšđžčć]{1,29}$/u";
+
+        if (!preg_match($reIme, trim($d['ime'] ?? ""))) {
+            $errors[] = "First name is not valid (e.g. John).";
+        }
+        if (!preg_match($reIme, trim($d['prezime'] ?? ""))) {
+            $errors[] = "Last name is not valid (e.g. Doe).";
+        }
+        if (!filter_var(trim($d['email'] ?? ""), FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Email address is not valid.";
+        }
+        if (mb_strlen($d['lozinka'] ?? "") < 6) {
+            $errors[] = "Password must be at least 6 characters long.";
+        }
+        if (($d['lozinka'] ?? "") !== ($d['lozinka2'] ?? "")) {
+            $errors[] = "Passwords do not match.";
+        }
+        return $errors;
+    }
+
     function dohvatiNav() {
         global $conn;
         return $conn->query("SELECT * FROM nav ORDER BY redosled ASC")->fetchAll();
@@ -88,16 +134,16 @@
         $reIme = "/^[A-ZŠĐŽČĆ][a-zšđžčć]{1,19}$/u";
 
         if (!preg_match($reIme, trim($d['ime'] ?? ""))) {
-            $errors[] = "Ime nije u dobrom formatu (npr. Pera).";
+            $errors[] = "First name is not valid (e.g. John).";
         }
         if (!preg_match($reIme, trim($d['prezime'] ?? ""))) {
-            $errors[] = "Prezime nije u dobrom formatu (npr. Peric).";
+            $errors[] = "Last name is not valid (e.g. Doe).";
         }
         if (!filter_var(trim($d['email'] ?? ""), FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "Email nije u dobrom formatu.";
+            $errors[] = "Email address is not valid.";
         }
         if (!in_array($d['nacin_placanja'] ?? "", ["1", "2"], true)) {
-            $errors[] = "Izaberite nacin placanja.";
+            $errors[] = "Please choose a payment method.";
         }
         return $errors;
     }
@@ -117,7 +163,7 @@
             }
             $proizvod = dohvatiProizvod($pid);
             if (!$proizvod) {
-                $greske[] = "Proizvod (id $pid) ne postoji.";
+                $greske[] = "Product (id $pid) does not exist.";
                 continue;
             }
             $cena = (int) prikazCena($proizvod);
@@ -126,13 +172,13 @@
         }
 
         if (count($stavke) === 0) {
-            $greske[] = "Korpa je prazna.";
+            $greske[] = "Your cart is empty.";
         }
         if (count($greske) > 0) {
             return ['success' => false, 'errors' => $greske, 'id' => null];
         }
 
-        $nacin = $kupac['nacin_placanja'] == "1" ? "Kartica" : "Gotovina";
+        $nacin = $kupac['nacin_placanja'] == "1" ? "Card" : "Cash";
         try {
             $conn->beginTransaction();
 
@@ -167,7 +213,7 @@
             return ['success' => true, 'errors' => [], 'id' => $porId, 'ukupno' => $ukupno];
         } catch (PDOException $e) {
             $conn->rollBack();
-            return ['success' => false, 'errors' => ["Greska u bazi: " . $e->getMessage()], 'id' => null];
+            return ['success' => false, 'errors' => ["Database error: " . $e->getMessage()], 'id' => null];
         }
     }
 ?>

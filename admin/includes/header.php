@@ -12,12 +12,12 @@
 
                         <ul class="nav admin-nav">
                             <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">Dashboard</a></li>
-                            <li><a href="products.php" class="<?= in_array(basename($_SERVER['PHP_SELF']), ['products.php','add-product.php','edit-product.php']) ? 'active' : '' ?>">Proizvodi</a></li>
-                            <li><a href="../index.php">Sajt</a></li>
+                            <li><a href="products.php" class="<?= in_array(basename($_SERVER['PHP_SELF']), ['products.php','add-product.php','edit-product.php']) ? 'active' : '' ?>">Products</a></li>
+                            <li><a href="../index.php">Site</a></li>
                             <?php if (isset($_SESSION['korisnik'])): ?>
                                 <li>
                                     <a href="logic/logout.php" class="admin-logout">
-                                        <i class="fa fa-sign-out"></i> Odjava
+                                        <i class="fa fa-sign-out"></i> Logout
                                         (<?= e($_SESSION['korisnik']->ime) ?>)
                                     </a>
                                 </li>

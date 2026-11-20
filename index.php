@@ -4,7 +4,7 @@
     require_once "logic/functions.php";
     require_once "logic/utility.php";
 
-    $pageTitle = "Pocetna";
+    $pageTitle = "Home";
     require_once "includes/template/head.php";
 ?>
 
@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section">
-                                    <h4><em>Najnovije</em> u prodavnici</h4>
+                                    <h4><em>Latest</em> in store</h4>
                                 </div>
                                 <div class="row">
                                     <?php

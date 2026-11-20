@@ -1,7 +1,7 @@
 <?php
     session_start();
     include "logic/utility.php";
-    autorizacija("login.php", "admin");
+    autorizacija("../login.php", "admin");
 
     include "config/conn.php";
     include "logic/functions.php";
@@ -13,7 +13,7 @@
 
     $proizvod = dohvatiProizvod($id);
     if (!$proizvod) {
-        $_SESSION['poruka-greska'] = "Proizvod nije pronadjen.";
+        $_SESSION['poruka-greska'] = "Product not found.";
         redirect("products.php");
     }
 
@@ -25,12 +25,12 @@
     $errors = $_SESSION['form-errors'] ?? [];
     unset($_SESSION['form-old'], $_SESSION['form-errors']);
 
-    $pageTitle = "Izmena proizvoda";
+    $pageTitle = "Edit product";
     include "includes/head.php";
     include "includes/header.php";
 ?>
     <div class="container">
-        <h1 class="admin-heading"><em>Izmena</em> proizvoda</h1>
+        <h1 class="admin-heading"><em>Edit</em> product</h1>
         <p class="admin-subtitle"><?= e($proizvod->naziv) ?></p>
 
         <?php if (count($errors) > 0): ?>

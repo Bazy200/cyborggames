@@ -31,15 +31,18 @@
                             </a>
                         </li>
 
-                        <?php if (isset($_SESSION['korisnik']) && $_SESSION['korisnik']->uloga == "admin"): ?>
-                            <li><a href="admin/index.php">Admin</a></li>
+                        <?php if (isset($_SESSION['korisnik'])): ?>
+                            <?php if ($_SESSION['korisnik']->uloga == "admin"): ?>
+                                <li><a href="admin/index.php">Admin</a></li>
+                            <?php endif; ?>
                             <li>
-                                <a href="admin/logic/logout.php">
-                                    Odjava (<?= e($_SESSION['korisnik']->ime) ?>)
+                                <a href="logic/logout.php">
+                                    Logout (<?= e($_SESSION['korisnik']->ime) ?>)
                                 </a>
                             </li>
                         <?php else: ?>
-                            <li><a href="admin/login.php">Prijava</a></li>
+                            <li><a href="login.php">Login</a></li>
+                            <li><a href="register.php">Register</a></li>
                         <?php endif; ?>
                     </ul>
                     <a class='menu-trigger'>

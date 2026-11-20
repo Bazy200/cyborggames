@@ -4,14 +4,14 @@
     require_once "logic/functions.php";
     require_once "logic/utility.php";
 
-    $pageTitle = "Korpa";
+    $pageTitle = "Cart";
     require_once "includes/template/head.php";
 ?>
 
     <?php if (!empty($_SESSION['kupovina-greske'])): ?>
         <div class="container mt-4">
             <div class="alert alert-danger">
-                <strong>Kupovina nije uspela:</strong>
+                <strong>Checkout failed:</strong>
                 <ul class="mb-0">
                     <?php foreach ($_SESSION['kupovina-greske'] as $greska): ?>
                         <li><?= e($greska) ?></li>

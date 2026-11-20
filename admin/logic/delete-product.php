@@ -2,7 +2,7 @@
 
     session_start();
     include "utility.php";
-    autorizacija("../login.php", "admin");
+    autorizacija("../../login.php", "admin");
 
     $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
     if ($id <= 0) {
@@ -14,9 +14,9 @@
 
     try {
         obrisiProizvod($id);
-        $_SESSION['poruka-uspeh'] = "Proizvod je obrisan.";
+        $_SESSION['poruka-uspeh'] = "Product deleted.";
     } catch (PDOException $e) {
-        $_SESSION['poruka-greska'] = "Brisanje nije uspelo: " . $e->getMessage();
+        $_SESSION['poruka-greska'] = "Delete failed: " . $e->getMessage();
     }
 
     redirect("../products.php");

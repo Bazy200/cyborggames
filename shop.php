@@ -37,7 +37,7 @@
             <div class="col-lg-3">
                 <form method="get" action="shop.php" class="p-3 filter-box">
                     <div class="form-group mb-3">
-                        <label class="form-label text-light">Sortiranje</label>
+                        <label class="form-label text-light">Sort</label>
                         <select name="sort" class="form-select">
                             <?php foreach ($opcijeSort as $vr => $tekst): ?>
                                 <option value="<?= e($vr) ?>" <?= ($sort == $vr) ? 'selected' : '' ?>><?= e($tekst) ?></option>
@@ -46,9 +46,9 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label text-light">Zanr</label>
+                        <label class="form-label text-light">Genre</label>
                         <select name="zanr" class="form-select">
-                            <option value="">Svi</option>
+                            <option value="">All</option>
                             <?php foreach ($zanrovi as $z): ?>
                                 <option value="<?= (int)$z->id ?>" <?= ($filteri['zanr'] == $z->id) ? 'selected' : '' ?>><?= e($z->naziv) ?></option>
                             <?php endforeach; ?>
@@ -56,9 +56,9 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label text-light">Proizvodjac</label>
+                        <label class="form-label text-light">Publisher</label>
                         <select name="proizvodjac" class="form-select">
-                            <option value="">Svi</option>
+                            <option value="">All</option>
                             <?php foreach ($proizvodjaci as $pr): ?>
                                 <option value="<?= (int)$pr->id ?>" <?= ($filteri['proizvodjac'] == $pr->id) ? 'selected' : '' ?>><?= e($pr->naziv) ?></option>
                             <?php endforeach; ?>
@@ -66,23 +66,23 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label text-light">Platforma</label>
+                        <label class="form-label text-light">Platform</label>
                         <select name="platforma" class="form-select">
-                            <option value="">Sve</option>
+                            <option value="">All</option>
                             <?php foreach ($platforme as $pl): ?>
                                 <option value="<?= (int)$pl->id ?>" <?= ($filteri['platforma'] == $pl->id) ? 'selected' : '' ?>><?= e($pl->naziv) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-danger w-100 mb-2">Primeni</button>
-                    <a href="shop.php" class="btn btn-outline-light w-100">Ponisti</a>
+                    <button type="submit" class="btn btn-danger w-100 mb-2">Apply</button>
+                    <a href="shop.php" class="btn btn-outline-light w-100">Reset</a>
                 </form>
             </div>
 
             <div class="col-lg-9">
                 <?php if (count($proizvodi) == 0): ?>
-                    <div class="alert alert-danger" role="alert">Nema igara za izabrane filtere.</div>
+                    <div class="alert alert-danger" role="alert">No games for the selected filters.</div>
                 <?php else: ?>
                     <div class="row">
                         <?php foreach ($proizvodi as $p): ?>
@@ -94,7 +94,6 @@
                                         <p class="m-0"><?= e($p->proizvodjac_naziv) ?></p>
                                         <p><?= e($p->platforma_naziv) ?></p>
                                         <p><?= e(prikazCena($p)) ?> RSD</p>
-                                        <p><?= $p->new_arrival ? "Yes" : "No" ?></p>
                                         <button class="btn btn-danger btn-cart-add" data-id="<?= (int)$p->id ?>">Add to cart</button>
                                     </div>
                                 </div>

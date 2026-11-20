@@ -4,7 +4,7 @@
     require_once "logic/functions.php";
     require_once "logic/utility.php";
 
-    $pageTitle = "Autor";
+    $pageTitle = "Author";
     require_once "includes/template/head.php";
 ?>
 
@@ -26,10 +26,10 @@
                                         <a class="card-link link-dark text-decoration-none" href="#!">Veljko Veljkovic</a>
                                     </h3>
                                     <div class="card-text mb-3">
-                                        <p>Indeks: 107/22</p>
-                                        <p>Datum rodjenja: 10.4.2004</p>
-                                        <p>Skola: Visoka ICT</p>
-                                        <p>Smer: IT</p>
+                                        <p>Index: 107/22</p>
+                                        <p>Date of birth: 10.4.2004</p>
+                                        <p>School: ICT College</p>
+                                        <p>Major: IT</p>
                                     </div>
                                     <ul class="bsb-social-media nav m-0">
                                         <li class="nav-item">

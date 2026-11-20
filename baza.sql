@@ -85,9 +85,9 @@ CREATE TABLE `nav` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `nav` (`href`, `label`, `redosled`) VALUES
-    ('index.php', 'Home',  1),
-    ('shop.php',  'Shop',  2),
-    ('autor.php', 'Autor', 3);
+    ('index.php', 'Home',   1),
+    ('shop.php',  'Shop',   2),
+    ('autor.php', 'Author', 3);
 
 CREATE TABLE `proizvod` (
     `id`             INT(11) NOT NULL AUTO_INCREMENT,

@@ -27,7 +27,7 @@
         }
     }
 
-    $pageTitle = "Kupovina uspesna";
+    $pageTitle = "Purchase successful";
     require_once "includes/template/head.php";
 ?>
 
@@ -36,15 +36,15 @@
             <div class="col-lg-8">
                 <?php if ($porudzbina): ?>
                     <div class="p-5 bg-white rounded shadow-sm text-center">
-                        <h1 class="text-success mb-3"><i class="fa fa-check-circle"></i> Hvala na kupovini!</h1>
-                        <p class="lead">Porudzbina <strong>#<?= (int)$porudzbina->id ?></strong> je uspesno primljena.</p>
-                        <p>Kupac: <strong><?= e($porudzbina->ime) ?> <?= e($porudzbina->prezime) ?></strong>
+                        <h1 class="text-success mb-3"><i class="fa fa-check-circle"></i> Thank you for your purchase!</h1>
+                        <p class="lead">Order <strong>#<?= (int)$porudzbina->id ?></strong> has been received successfully.</p>
+                        <p>Customer: <strong><?= e($porudzbina->ime) ?> <?= e($porudzbina->prezime) ?></strong>
                            &middot; <?= e($porudzbina->email) ?>
-                           &middot; Placanje: <?= e($porudzbina->nacin_placanja) ?></p>
+                           &middot; Payment: <?= e($porudzbina->nacin_placanja) ?></p>
 
                         <table class="table mt-4">
                             <thead>
-                                <tr><th>Igra</th><th>Kolicina</th><th>Cena</th><th>Ukupno</th></tr>
+                                <tr><th>Game</th><th>Quantity</th><th>Price</th><th>Total</th></tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($stavke as $s): ?>
@@ -57,15 +57,15 @@
                                 <?php endforeach; ?>
                             </tbody>
                             <tfoot>
-                                <tr><th colspan="3" class="text-end">Ukupno:</th><th><?= (int)$porudzbina->ukupno ?> RSD</th></tr>
+                                <tr><th colspan="3" class="text-end">Total:</th><th><?= (int)$porudzbina->ukupno ?> RSD</th></tr>
                             </tfoot>
                         </table>
 
-                        <a href="shop.php" class="btn btn-danger mt-3">Nastavi kupovinu</a>
+                        <a href="shop.php" class="btn btn-danger mt-3">Continue shopping</a>
                     </div>
                 <?php else: ?>
-                    <div class="alert alert-danger text-center">Porudzbina nije pronadjena.</div>
-                    <div class="text-center"><a href="shop.php" class="btn btn-danger">Nazad u prodavnicu</a></div>
+                    <div class="alert alert-danger text-center">Order not found.</div>
+                    <div class="text-center"><a href="shop.php" class="btn btn-danger">Back to shop</a></div>
                 <?php endif; ?>
             </div>
         </div>
