@@ -1,0 +1,229 @@
+/* ============================================================
+   Admin panel - stil usklađen sa CyborgGames temom
+   Paleta:  bg #1f2122 / #1e1e1e,  akcenti #e75e8d / #ec6090
+   Font: Poppins (učitan u head.php)
+   ============================================================ */
+
+body {
+    background-color: #1f2122;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-main {
+    display: block;
+    min-height: 70vh;
+    padding: 40px 0 60px;
+}
+
+/* ----- Navigacija (nadogradnja site .main-nav) ----- */
+.main-nav .admin-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    margin-left: auto;
+}
+.main-nav .admin-nav li { display: inline-block; }
+.main-nav .admin-nav li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all .3s;
+}
+.main-nav .admin-nav li a:hover,
+.main-nav .admin-nav li a.active {
+    color: #e75e8d;
+}
+.main-nav .admin-nav li a.admin-logout:hover { color: #fff; background-color: #e75e8d; }
+
+/* ----- Naslovi (isti princip kao .heading-section) ----- */
+.admin-heading {
+    color: #ec6090;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.admin-heading em { color: #fff; font-style: normal; text-decoration: underline; }
+.admin-subtitle { color: #9a9a9a; font-size: 14px; margin-bottom: 28px; }
+
+/* ----- Kartica / panel ----- */
+.admin-card {
+    background-color: #27292a;
+    border: 1px solid #333638;
+    border-radius: 18px;
+    padding: 28px 30px;
+    margin-bottom: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.admin-card h4 { color: #fff; font-size: 20px; margin-bottom: 18px; }
+
+/* ----- Dashboard stat kartice ----- */
+.stat-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+.stat-card {
+    flex: 1 1 200px;
+    background: linear-gradient(135deg, #2a2c2d, #232526);
+    border: 1px solid #3a3d3f;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: transform .25s, border-color .25s;
+}
+.stat-card:hover { transform: translateY(-4px); border-color: #e75e8d; }
+.stat-card .stat-num { font-size: 40px; font-weight: 700; color: #e75e8d; line-height: 1; }
+.stat-card .stat-label { color: #cfcfcf; font-size: 14px; margin-top: 10px; text-transform: uppercase; letter-spacing: .5px; }
+.stat-card .stat-ico { font-size: 22px; color: #ec6090; margin-bottom: 10px; }
+
+/* ----- Tabela proizvoda ----- */
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #333638;
+}
+.admin-table thead th {
+    color: #ec6090;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.admin-table tbody tr { transition: background-color .2s; }
+.admin-table tbody tr:hover { background-color: #2d2f30; }
+.admin-table td { color: #e4e4e4; font-size: 14px; }
+.admin-table .thumb { width: 54px; height: 54px; object-fit: cover; border-radius: 8px; }
+.admin-table .cena-nova { color: #e75e8d; font-weight: 600; }
+.admin-table .cena-stara { color: #8a8a8a; text-decoration: line-through; font-size: 13px; }
+
+.badge-new {
+    display: inline-block;
+    background-color: #e75e8d;
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+.badge-muted {
+    display: inline-block;
+    background-color: #3a3d3f;
+    color: #b7b7b7;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* ----- Filter / sort bar (filter na back-u) ----- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    background-color: #27292a;
+    border: 1px solid #333638;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+}
+.filter-bar .filter-item { display: flex; flex-direction: column; gap: 6px; }
+.filter-bar label { font-size: 12px; color: #9a9a9a; text-transform: uppercase; letter-spacing: .5px; }
+
+/* ----- Forme (dark inputi u temi) ----- */
+.admin-form label.form-label { color: #cfcfcf; font-size: 14px; margin-bottom: 6px; }
+.admin-input,
+.filter-bar select,
+.admin-form .form-control,
+.admin-form .form-select {
+    background-color: #1f2122;
+    border: 1px solid #3a3d3f;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+}
+.admin-input:focus,
+.admin-form .form-control:focus,
+.admin-form .form-select:focus {
+    border-color: #e75e8d;
+    box-shadow: 0 0 0 .15rem rgba(231,94,141,.25);
+    background-color: #1f2122;
+    color: #fff;
+}
+.admin-form .form-check-input:checked { background-color: #e75e8d; border-color: #e75e8d; }
+.admin-form select option { background-color: #1f2122; color: #fff; }
+
+/* ----- Dugmad (pill, kao .main-button sa sajta) ----- */
+.btn-pink {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    background-color: #e75e8d;
+    padding: 11px 26px;
+    border: 1px solid #e75e8d;
+    border-radius: 25px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+.btn-pink:hover { background-color: #fff; color: #e75e8d; }
+
+.btn-outline-pink {
+    display: inline-block;
+    font-size: 14px;
+    color: #ec6090;
+    background-color: transparent;
+    border: 1px solid #ec6090;
+    padding: 11px 26px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+.btn-outline-pink:hover { background-color: #fff; color: #e75e8d; border-color: #fff; }
+
+.btn-sm-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all .25s;
+}
+.btn-edit { color: #ec6090; border: 1px solid #ec6090; }
+.btn-edit:hover { background-color: #e75e8d; color: #fff; border-color: #e75e8d; }
+.btn-del { color: #ff6b6b; border: 1px solid #ff6b6b; }
+.btn-del:hover { background-color: #ff6b6b; color: #fff; }
+
+/* ----- Alerti / flash poruke ----- */
+.admin-alert { border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; font-size: 14px; }
+.admin-alert-success { background-color: rgba(46,160,96,.15); border: 1px solid #2ea060; color: #7ee2a8; }
+.admin-alert-danger  { background-color: rgba(255,107,107,.12); border: 1px solid #ff6b6b; color: #ff9d9d; }
+.admin-alert-warning { background-color: rgba(231,94,141,.12); border: 1px solid #e75e8d; color: #f3a6c3; }
+.admin-alert ul { margin: 0; padding-left: 18px; }
+
+/* ----- Login stranica ----- */
+.login-wrap { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: #27292a;
+    border: 1px solid #333638;
+    border-radius: 20px;
+    padding: 40px 36px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+.login-card .login-logo { text-align: center; margin-bottom: 18px; }
+.login-card .login-logo img { width: 150px; }
+.login-card h1 { color: #ec6090; font-size: 26px; text-align: center; margin-bottom: 6px; }
+.login-card p.login-hint { color: #9a9a9a; font-size: 13px; text-align: center; margin-bottom: 26px; }
+.login-card .btn-pink { width: 100%; text-align: center; }
+
+.text-muted-cy { color: #8a8a8a !important; }
+.empty-row td { text-align: center; color: #8a8a8a; padding: 30px 0; }

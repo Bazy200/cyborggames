@@ -284,11 +284,8 @@ window.onload = () => {
             CartFirst(id);
         }
         $(".lblCartCount").html(dohvatiIzLS("productsCart").length)
-        
-    }
 
-    //dohvatiIzLS("productsCart") != null ? $(".lblCartCount").html(dohvatiIzLS("productsCart").length) : $(".lblCartCount").html("")
-    
+    }
 
     function CartFirst(id){
         let products = []
@@ -433,35 +430,37 @@ window.onload = () => {
       </div>
       <div class="modal-body">
       
-      <form>
+      <form id="buyForm" action="logic/kupovina.php" method="post">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="email" class="form-control" id="ime" aria-describedby="emailHelp">
+        <label for="ime" class="form-label">Name</label>
+        <input type="text" name="ime" class="form-control" id="ime">
         <span id="nameErr" class="nevidljiv text-danger">Wrong name, example: Pink</span>
       </div>
 
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Last Name</label>
-        <input type="email" class="form-control" id="prezime" aria-describedby="emailHelp">
+        <label for="prezime" class="form-label">Last Name</label>
+        <input type="text" name="prezime" class="form-control" id="prezime">
         <span id="lnameErr" class="nevidljiv text-danger">Wrong last name, example: Panter</span>
       </div>
 
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="email">
         <span id="emailErr" class="nevidljiv text-danger">Email erorr, example: veljko@gmail.com</span>
       </div>
 
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Payment method</label>
-        <select class="form-control" name="category" id="category"> 
+        <label for="category" class="form-label">Payment method</label>
+        <select class="form-control" name="nacin_placanja" id="category">
             <option value="0">Choose..</option>
             <option value="1">Credit card</option>
             <option value="2">Cash</option>
         </select>
         <span id="categoryErr" class="nevidljiv text-danger">You must choose one method</span>
       </div>
-      
+
+      <input type="hidden" name="korpa" id="korpa">
+      <input type="hidden" name="btnKupi" value="1">
     </form>
     
       </div>
@@ -581,6 +580,8 @@ window.onload = () => {
 
         if(brojGresaka==0){
             document.querySelector("#ende").classList.remove("nevidljiv")
+            document.querySelector("#korpa").value = JSON.stringify(dohvatiIzLS("productsCart") || []);
+            document.querySelector("#buyForm").submit();
         }
         else{
             document.querySelector("#ende").classList.add("nevidljiv")
